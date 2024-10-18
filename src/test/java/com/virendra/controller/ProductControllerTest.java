@@ -5,16 +5,11 @@ import io.quarkus.test.junit.QuarkusTest;
 import jakarta.ws.rs.core.Response;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.*;
 
 @QuarkusTest
 public class ProductControllerTest {
-
-    static List<Product> products = new ArrayList<>();
 
     @Test
     void testCreateProduct() {
