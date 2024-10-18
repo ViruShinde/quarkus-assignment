@@ -3,6 +3,7 @@ package com.virendra.controller;
 import com.virendra.entity.Product;
 import com.virendra.service.ProductService;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
 import org.slf4j.Logger;
@@ -27,7 +28,7 @@ public class ProductController {
 
 
     @PostMapping("/product")
-    public Response createProduct(Product product) {
+    public Response createProduct(@Valid Product product) {
         productService.addProduct(product);
         return Response.ok().build();
     }
@@ -48,7 +49,7 @@ public class ProductController {
     }
 
     @PutMapping("/products")
-    public Response updateProduct(Product product) {
+    public Response updateProduct(@Valid Product product) {
         Optional<Product> updateProduct = productService.updateProduct(product);
         return updateProduct.map(r -> Response.status(Response.Status.ACCEPTED)).orElseGet(() -> Response.status(Response.Status.NOT_FOUND).entity("Product not found for update")).build();
     }
