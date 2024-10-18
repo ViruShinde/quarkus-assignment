@@ -18,7 +18,7 @@ public class ProductControllerTest {
 
     @Test
     void testCreateProduct() {
-        Product product = new Product( null, "Apple I phone", "IOS device", 50000, 10);
+        Product product = new Product( null, "Apple I phone2", "IOS device", 50000, 10);
 
         given()
                 .contentType("application/json")
