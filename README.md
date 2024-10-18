@@ -12,6 +12,14 @@ You can run your application in dev mode that enables live coding using:
 ./mvnw compile quarkus:dev
 ```
 
+## Postman Collections to test the APIs
+
+You can find the postman collection and environment in the root directory of the project. The collection is named `Quarkus-assignment.postman_collection.json`.
+
+[Quarkus-assignment postman collection.postman_collection.json](..%2FQuarkus%20backup%20files%2FQuarkus-assignment%20postman%20collection.postman_collection.json)
+
+[Product.postman_environment.json](..%2FQuarkus%20backup%20files%2FProduct.postman_environment.json)
+
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
 
 ## Packaging and running the application
