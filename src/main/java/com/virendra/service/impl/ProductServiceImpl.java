@@ -36,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
                     p.setDescription(product.getDescription());
                     p.setPrice(product.getPrice());
                     p.setQuantity(product.getQuantity());
-                    log.info("Updating product "+ p);
+                    log.info("Product has been updated "+ p);
                     return p;
                 });
 
@@ -81,7 +81,4 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.getAllProducts2(sort);
     }
 
-    public List<Product> getAllProducts(Sort sort) {
-        return productRepository.getAllProducts2(sort);
-    }
 }

@@ -2,7 +2,6 @@ package com.virendra.controller;
 
 import com.virendra.entity.Product;
 import com.virendra.service.ProductService;
-import io.quarkus.panache.common.Sort;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -43,7 +41,7 @@ public class ProductController {
     public Response getProducts(@PathVariable("name") String name) {
         List<Product> productByName = productService.getProductByName(name);
         if(productByName.isEmpty()){
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.NOT_FOUND).entity("Product not found for :"+name).build();
         }
         log.info("Product by name "+ productByName);
         return Response.ok(productByName).build();
@@ -74,7 +72,6 @@ public class ProductController {
         }
         return Response.ok("Out of Stock").build();
     }
-
 
     @GetMapping("/products")
     public Response getProducts(@QueryParam(value = "key") String key, @QueryParam(value = "sort") String sortDir) {
